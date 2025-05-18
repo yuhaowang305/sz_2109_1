@@ -1,0 +1,41 @@
+server:
+  port: 8000
+spring:
+  application:
+    name: order-service
+  profiles:
+    active: prod
+  cloud:
+    nacos:
+      server-addr: 127.0.0.1:8848
+      namespace: ${spring.profiles.active:public}
+
+#配置Feign的日志级别
+logging:
+  level:
+    com.njupt.order.feign: debug
+---
+spring:
+  config:
+    import:
+      - nacos:common.properties?group=order
+      - nacos:database.properties?group=order
+    active:
+      on-profile: dev
+---
+spring:
+  config:
+    import:
+      - nacos:common.properties?group=order
+      - nacos:database.properties?group=order
+    active:
+      on-profile: test
+---
+spring:
+  config:
+    import:
+      - nacos:common.properties?group=order
+      - nacos:database.properties?group=order
+    active:
+      on-profile: prod
+
