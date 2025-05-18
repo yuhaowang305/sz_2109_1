@@ -1,4 +1,5 @@
 public vlass hello01{
 	public static void main(){
+public static system pringln
 };
 }
