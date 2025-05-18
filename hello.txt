@@ -1,0 +1,4 @@
+public vlass hello01{
+	public static void main(){
+};
+}
